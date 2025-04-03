@@ -1,12 +1,12 @@
 import express from "express";
+import router from "./routes/routes.js";
 
+const PORT = 3100;
 const app = express();
-const PORT = 3000;
 
-app.get("/", (req, res) => {
-  res.send("Servidor Express rodando!");
-});
+app.use(express.static("public"));
+app.use(router);
 
-app.listen(PORT, () => {
-  console.log(`🚀 Servidor rodando em http://localhost:${PORT}`);
-});
+app.listen(PORT, () =>
+  console.log(`server is running in http://localhost:${PORT}/login`)
+);
